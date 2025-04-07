@@ -2,7 +2,7 @@
 import React from "react";
 import ContactForm from "@/components/ContactForm";
 import GoogleMap from "@/components/GoogleMap";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, Mail, MapPin } from "lucide-react";
 
 const ContactPage: React.FC = () => {
   return (
@@ -70,35 +70,6 @@ const ContactPage: React.FC = () => {
       
       {/* Contact Form Section */}
       <ContactForm />
-      
-      {/* Office Update Note */}
-      <section className="py-16 bg-gray-50">
-        <div className="willis-container">
-          <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
-            <div className="p-8">
-              <h3 className="text-2xl font-bold mb-4 flex items-center">
-                <Clock className="h-6 w-6 text-willis-red mr-3" />
-                Important Notice
-              </h3>
-              <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6">
-                <p className="font-medium">Our Office Has Moved</p>
-                <p className="text-gray-600">
-                  Your navigation system may not recognize the new address as not all providers have updated their systems. Should you require assistance in finding us, please contact the general enquiries contact number above.
-                </p>
-              </div>
-              <div>
-                <h4 className="font-bold text-lg mb-3">Current Address:</h4>
-                <p className="text-gray-600">
-                  Willis Construction Ltd<br />
-                  Unit 1 River Bridge Business Centre<br />
-                  Rhymney River Bridge Road, Penylan<br />
-                  Cardiff, CF23 9FP
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
       
       {/* Google Map Section */}
       <section className="relative">

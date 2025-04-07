@@ -1,10 +1,11 @@
 
 import React, { useEffect, useRef } from 'react';
 
-// Add type definition for the window object with initMap
+// Declare the google namespace to fix TypeScript errors
 declare global {
   interface Window {
     initMap: () => void;
+    google: typeof google;
   }
 }
 
@@ -20,12 +21,11 @@ const GoogleMap: React.FC = () => {
     
     // Define the initMap function globally
     window.initMap = function() {
-      if (mapRef.current) {
-        // Using coordinates for the new Willis Construction address
-        // Unit 1 River Bridge Business Centre, Rhymney River Bridge Road, Penylan, Cardiff, CF23 9FP
-        const location = { lat: 51.497, lng: -3.145 }; // Updated coordinates for new location
+      if (mapRef.current && window.google) {
+        // Using coordinates for Willis Construction
+        const location = { lat: 51.497, lng: -3.145 };
         
-        const map = new google.maps.Map(mapRef.current, {
+        const map = new window.google.maps.Map(mapRef.current, {
           center: location,
           zoom: 15,
           styles: [
@@ -119,15 +119,15 @@ const GoogleMap: React.FC = () => {
         });
         
         // Add a marker for Willis Construction
-        const marker = new google.maps.Marker({
+        const marker = new window.google.maps.Marker({
           position: location,
           map: map,
           title: 'Willis Construction Ltd',
-          animation: google.maps.Animation.DROP
+          animation: window.google.maps.Animation.DROP
         });
         
-        // Add an info window with the new address
-        const infowindow = new google.maps.InfoWindow({
+        // Add an info window with the company address
+        const infowindow = new window.google.maps.InfoWindow({
           content: `
             <div class="p-2">
               <h3 class="font-bold text-base mb-1">Willis Construction Ltd</h3>
