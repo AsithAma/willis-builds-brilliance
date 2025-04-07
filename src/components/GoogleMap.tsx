@@ -1,11 +1,10 @@
 
 import React, { useEffect, useRef } from 'react';
 
-// Declare the google namespace to fix TypeScript errors
 declare global {
   interface Window {
     initMap: () => void;
-    google: typeof google;
+    google: any; // Using any type to avoid TypeScript errors
   }
 }
 
