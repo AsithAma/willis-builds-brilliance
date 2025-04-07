@@ -1,11 +1,49 @@
 
 import React, { useState } from "react";
-import ProjectCard from "@/components/ProjectCard";
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 import CallToAction from "@/components/CallToAction";
 import Gallery from "@/components/Gallery";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 
-// Project data
-const projects = [
+// Project categories
+const projectCategories = [
+  {
+    id: 1,
+    title: "Development",
+    description: "New construction projects and property developments across various sectors.",
+    image: "https://images.unsplash.com/photo-1503594384566-461fe158e797?q=80&w=800&auto=format&fit=crop",
+    link: "/projects/development",
+    icon: "🏗️",
+  },
+  {
+    id: 2,
+    title: "Refurbishment",
+    description: "Complete renovation and modernization of existing residential and commercial structures.",
+    image: "https://images.unsplash.com/photo-1583167411259-e2fdb1a8d5bd?q=80&w=800&auto=format&fit=crop",
+    link: "/projects/refurbishment",
+    icon: "🔨",
+  },
+  {
+    id: 3,
+    title: "Planned Refurbishment",
+    description: "Strategic scheduled renovations and upgrades to improve building performance and longevity.",
+    image: "https://images.unsplash.com/photo-1527847121998-c8e13a4abb71?q=80&w=800&auto=format&fit=crop",
+    link: "/projects/planned-refurbishment",
+    icon: "📋",
+  },
+  {
+    id: 4,
+    title: "Educational & Local Authority",
+    description: "Specialized projects for schools, universities, and public sector buildings.",
+    image: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=800&auto=format&fit=crop",
+    link: "/projects/educational-local-authority",
+    icon: "🏫",
+  },
+];
+
+// Featured projects
+const featuredProjects = [
   {
     id: 1,
     image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?q=80&w=800&auto=format&fit=crop",
@@ -30,64 +68,9 @@ const projects = [
     description: "Multi-purpose community facility designed to serve local residents with various activities.",
     link: "/projects",
   },
-  {
-    id: 4,
-    image: "https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?q=80&w=800&auto=format&fit=crop",
-    title: "University Science Building",
-    category: "Educational",
-    description: "State-of-the-art research facility with laboratories and learning spaces for students.",
-    link: "/projects",
-  },
-  {
-    id: 5,
-    image: "https://images.unsplash.com/photo-1460574283810-2aab119d8511?q=80&w=800&auto=format&fit=crop",
-    title: "Corporate Headquarters",
-    category: "Commercial",
-    description: "Flagship office building with innovative design and cutting-edge technology infrastructure.",
-    link: "/projects",
-  },
-  {
-    id: 6,
-    image: "https://images.unsplash.com/photo-1459767129954-1b1c1f9b9ace?q=80&w=800&auto=format&fit=crop",
-    title: "Public Library Renovation",
-    category: "Public",
-    description: "Complete renovation of a historic library building, preserving heritage while adding modern amenities.",
-    link: "/projects",
-  },
-  {
-    id: 7,
-    image: "https://images.unsplash.com/photo-1495314736024-fa5e4b37b979?q=80&w=800&auto=format&fit=crop",
-    title: "Townhouse Development",
-    category: "Residential",
-    description: "Urban infill project featuring contemporary townhouses with sustainable materials.",
-    link: "/projects",
-  },
-  {
-    id: 8,
-    image: "https://images.unsplash.com/photo-1429041966141-44d228a42775?q=80&w=800&auto=format&fit=crop",
-    title: "Primary School Extension",
-    category: "Educational",
-    description: "Modern extension to existing school providing additional classrooms and multipurpose spaces.",
-    link: "/projects",
-  },
-  {
-    id: 9,
-    image: "https://images.unsplash.com/photo-1496307653780-42ee777d4833?q=80&w=800&auto=format&fit=crop",
-    title: "Shopping Center Refurbishment",
-    category: "Retail",
-    description: "Complete modernization of existing retail space with improved accessibility and customer experience.",
-    link: "/projects",
-  },
 ];
 
 const ProjectsPage: React.FC = () => {
-  const categories = ["All", ...Array.from(new Set(projects.map(project => project.category)))];
-  const [activeFilter, setActiveFilter] = useState("All");
-
-  const filteredProjects = activeFilter === "All" 
-    ? projects 
-    : projects.filter(project => project.category === activeFilter);
-
   return (
     <div>
       {/* Hero Section */}
@@ -109,49 +92,94 @@ const ProjectsPage: React.FC = () => {
         </div>
       </div>
       
-      {/* Project Showcase */}
+      {/* Project Categories */}
       <section className="py-16 md:py-24 bg-white">
         <div className="willis-container">
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setActiveFilter(category)}
-                className={`px-6 py-3 rounded-full text-base md:text-lg transition-all duration-300 ${
-                  activeFilter === category
-                    ? "bg-willis-red text-white shadow-md"
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                }`}
-              >
-                {category}
-              </button>
-            ))}
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Project Categories</h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              We specialize in various construction sectors. Explore our work by category below.
+            </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProjects.map((project) => (
-              <ProjectCard
-                key={project.id}
-                image={project.image}
-                title={project.title}
-                category={project.category}
-                description={project.description}
-                link={project.link}
-              />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {projectCategories.map((category) => (
+              <Link to={category.link} key={category.id} className="group">
+                <Card className="overflow-hidden h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-2 border-0 shadow-lg">
+                  <div className="relative h-48 overflow-hidden">
+                    <img 
+                      src={category.image} 
+                      alt={category.title} 
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-70"></div>
+                    <div className="absolute bottom-4 left-4 text-white text-4xl">{category.icon}</div>
+                  </div>
+                  <CardHeader className="pb-2">
+                    <CardTitle className="text-xl text-willis-red group-hover:text-willis-red/80 transition-colors">
+                      {category.title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <CardDescription className="text-gray-600">
+                      {category.description}
+                    </CardDescription>
+                  </CardContent>
+                  <CardFooter>
+                    <div className="flex items-center text-willis-red font-medium group/link">
+                      <span>View Projects</span>
+                      <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover/link:translate-x-1" />
+                    </div>
+                  </CardFooter>
+                </Card>
+              </Link>
             ))}
           </div>
+        </div>
+      </section>
+      
+      {/* Featured Projects */}
+      <section className="py-16 bg-gray-50">
+        <div className="willis-container">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured Projects</h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Highlighting some of our most impressive work across different categories.
+            </p>
+          </div>
           
-          {filteredProjects.length === 0 && (
-            <div className="text-center py-16">
-              <h3 className="text-2xl font-bold text-gray-700 mb-4">No projects found</h3>
-              <p className="text-gray-600">No projects match the selected filter. Please try another category.</p>
-            </div>
-          )}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {featuredProjects.map((project) => (
+              <div key={project.id} className="project-card group">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-[350px] object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="project-overlay group-hover:opacity-100">
+                  <div className="transform transition-transform duration-500 group-hover:translate-y-0 translate-y-4">
+                    <span className="inline-block bg-willis-red text-white text-sm px-3 py-1 rounded mb-2">
+                      {project.category}
+                    </span>
+                    <h3 className="text-xl md:text-2xl font-bold text-white mb-2">{project.title}</h3>
+                    <p className="text-white/80 mb-4 line-clamp-2">{project.description}</p>
+                    <Link
+                      to={project.link}
+                      className="inline-flex items-center text-white font-medium group/link"
+                    >
+                      View Project
+                      <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover/link:translate-x-1" />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
       
       {/* Featured Project */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-white">
         <div className="willis-container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6 animate-fade-in-left order-2 lg:order-1">

@@ -8,6 +8,10 @@ import Index from "./pages/Index";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
+import ProjectDevelopment from "./pages/ProjectDevelopment";
+import ProjectRefurbishment from "./pages/ProjectRefurbishment";
+import ProjectPlannedRefurbishment from "./pages/ProjectPlannedRefurbishment";
+import ProjectEducationalLocalAuthority from "./pages/ProjectEducationalLocalAuthority";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import Navbar from "./components/Navbar";
@@ -28,6 +32,10 @@ const App = () => (
             <Route path="/home" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/projects" element={<Projects />} />
+            <Route path="/projects/development" element={<ProjectDevelopment />} />
+            <Route path="/projects/refurbishment" element={<ProjectRefurbishment />} />
+            <Route path="/projects/planned-refurbishment" element={<ProjectPlannedRefurbishment />} />
+            <Route path="/projects/educational-local-authority" element={<ProjectEducationalLocalAuthority />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
