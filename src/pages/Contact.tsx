@@ -57,9 +57,11 @@ const ContactPage: React.FC = () => {
                 <MapPin className="h-8 w-8" />
               </div>
               <h3 className="text-xl font-bold mb-2">Location</h3>
-              <p className="text-gray-600 mb-4">Our office has moved to</p>
+              <p className="text-gray-600 mb-4">Visit our office at</p>
               <p className="text-lg font-medium">
-                Unit 1 River Bridge Business Centre,<br />Rhymney River Bridge Road,<br />Penylan, Cardiff, CF23 9FP
+                Unit 1 River Bridge Business Centre,<br />
+                Rhymney River Bridge Road,<br />
+                Penylan, Cardiff, CF23 9FP
               </p>
             </div>
           </div>
@@ -84,25 +86,14 @@ const ContactPage: React.FC = () => {
                   Your navigation system may not recognize the new address as not all providers have updated their systems. Should you require assistance in finding us, please contact the general enquiries contact number above.
                 </p>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
-                  <h4 className="font-bold text-lg mb-3">Old Address:</h4>
-                  <p className="text-gray-600">
-                    Willis Construction Ltd<br />
-                    Unit 6 Melyn Mair Business Centre<br />
-                    Wentloog Avenue, Rumney<br />
-                    Cardiff, CF3 2EX
-                  </p>
-                </div>
-                <div>
-                  <h4 className="font-bold text-lg mb-3">New Address:</h4>
-                  <p className="text-gray-600">
-                    Willis Construction Ltd<br />
-                    Unit 1 River Bridge Business Centre<br />
-                    Rhymney River Bridge Road, Penylan<br />
-                    Cardiff, CF23 9FP
-                  </p>
-                </div>
+              <div>
+                <h4 className="font-bold text-lg mb-3">Current Address:</h4>
+                <p className="text-gray-600">
+                  Willis Construction Ltd<br />
+                  Unit 1 River Bridge Business Centre<br />
+                  Rhymney River Bridge Road, Penylan<br />
+                  Cardiff, CF23 9FP
+                </p>
               </div>
             </div>
           </div>

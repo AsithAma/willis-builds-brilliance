@@ -66,7 +66,7 @@ const Navbar: React.FC = () => {
                   <Link to="/">
                     <NavigationMenuLink
                       className={cn(
-                        "group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50",
+                        "group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:text-[#f78da7] focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50",
                         isActive("/") || isActive("/home")
                           ? "text-willis-red font-semibold"
                           : "text-gray-700"
@@ -81,7 +81,7 @@ const Navbar: React.FC = () => {
                   <Link to="/about">
                     <NavigationMenuLink
                       className={cn(
-                        "group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50",
+                        "group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:text-[#f78da7] focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50",
                         isActive("/about")
                           ? "text-willis-red font-semibold"
                           : "text-gray-700"
@@ -101,7 +101,7 @@ const Navbar: React.FC = () => {
                       isActive("/projects/planned-refurbishment") || 
                       isActive("/projects/educational-local-authority") 
                         ? "text-willis-red font-semibold"
-                        : "text-gray-700"
+                        : "text-gray-700 hover:text-[#f78da7]"
                     )}
                   >
                     Projects
@@ -159,7 +159,7 @@ const Navbar: React.FC = () => {
                   <Link to="/contact">
                     <NavigationMenuLink
                       className={cn(
-                        "group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50",
+                        "group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:text-[#f78da7] focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50",
                         isActive("/contact")
                           ? "text-willis-red font-semibold"
                           : "text-gray-700"
@@ -233,25 +233,25 @@ const Navbar: React.FC = () => {
             <div className="flex flex-col items-center mt-2 space-y-3 pl-6">
               <Link 
                 to="/projects/development" 
-                className={`text-base ${isActive("/projects/development") ? "text-willis-red" : "text-gray-600"}`}
+                className={`text-base ${isActive("/projects/development") ? "text-willis-red" : "text-gray-600 hover:text-[#f78da7]"}`}
               >
                 Development
               </Link>
               <Link 
                 to="/projects/refurbishment" 
-                className={`text-base ${isActive("/projects/refurbishment") ? "text-willis-red" : "text-gray-600"}`}
+                className={`text-base ${isActive("/projects/refurbishment") ? "text-willis-red" : "text-gray-600 hover:text-[#f78da7]"}`}
               >
                 Refurbishment
               </Link>
               <Link 
                 to="/projects/planned-refurbishment" 
-                className={`text-base ${isActive("/projects/planned-refurbishment") ? "text-willis-red" : "text-gray-600"}`}
+                className={`text-base ${isActive("/projects/planned-refurbishment") ? "text-willis-red" : "text-gray-600 hover:text-[#f78da7]"}`}
               >
                 Planned Refurbishment
               </Link>
               <Link 
                 to="/projects/educational-local-authority" 
-                className={`text-base ${isActive("/projects/educational-local-authority") ? "text-willis-red" : "text-gray-600"}`}
+                className={`text-base ${isActive("/projects/educational-local-authority") ? "text-willis-red" : "text-gray-600 hover:text-[#f78da7]"}`}
               >
                 Educational & Local Authority
               </Link>
