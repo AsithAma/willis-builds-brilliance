@@ -1,7 +1,6 @@
 
 import React from "react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { User } from "lucide-react";
 
 interface TeamMemberProps {
@@ -24,24 +23,28 @@ const TeamMember: React.FC<TeamMemberProps> = ({
       className="overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
       style={{ animationDelay: `${delay}ms` }}
     >
-      <CardHeader className="p-6 pb-0">
-        <div className="flex items-center gap-4">
-          <Avatar className="h-12 w-12 bg-red-50">
-            {photoUrl ? (
-              <AvatarImage src={photoUrl} alt={name} />
-            ) : (
-              <AvatarFallback className="bg-willis-red/10 text-willis-red">
-                <User className="h-6 w-6" />
-              </AvatarFallback>
-            )}
-          </Avatar>
-          <div>
-            <h3 className="text-xl font-semibold">{name}</h3>
-            <p className="text-sm text-gray-600 whitespace-pre-line">{title}</p>
+      {/* Large Image Section */}
+      <div className="w-full h-64 relative">
+        {photoUrl ? (
+          <img 
+            src={photoUrl} 
+            alt={name} 
+            className="w-full h-full object-cover"
+          />
+        ) : (
+          <div className="w-full h-full flex items-center justify-center bg-willis-red/10">
+            <User className="h-20 w-20 text-willis-red" />
           </div>
-        </div>
+        )}
+      </div>
+      
+      {/* Content Section */}
+      <CardHeader className="p-6 pb-3">
+        <h3 className="text-xl font-semibold">{name}</h3>
+        <p className="text-sm text-gray-600 whitespace-pre-line">{title}</p>
       </CardHeader>
-      <CardContent className="p-6">
+      
+      <CardContent className="p-6 pt-0">
         <p className="text-gray-700">{bio}</p>
       </CardContent>
     </Card>
