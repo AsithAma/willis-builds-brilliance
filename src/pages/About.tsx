@@ -1,4 +1,3 @@
-
 import React from "react";
 import InfoSection from "@/components/InfoSection";
 import ServiceCard from "@/components/ServiceCard";
@@ -6,6 +5,7 @@ import TestimonialSlider from "@/components/TestimonialSlider";
 import CallToAction from "@/components/CallToAction";
 import StatsCounter from "@/components/StatsCounter";
 import { Building, Briefcase, BarChart, Shield, Recycle, Users, Award, Leaf } from "lucide-react";
+import TeamMember from "@/components/TeamMember";
 
 const AboutPage: React.FC = () => {
   const values = [
@@ -61,6 +61,79 @@ const AboutPage: React.FC = () => {
       icon: <Building className="h-8 w-8" />,
       title: "Local Authority Work",
       description: "Dedicated services for public sector buildings and infrastructure projects across Wales.",
+    },
+  ];
+
+  const teamMembers = [
+    {
+      name: "Gareth Williams",
+      title: "Managing Director",
+      bio: "Since starting the company in 1986, Gareth has led and developed the company to become a highly respected and trusted contractor strategically expanding its services to its present offering of New Build, Major Refurbishment, Planned Maintenance and Insurance Claims Repairs."
+    },
+    {
+      name: "Richard Jeremy",
+      title: "A.C.I.O.B.\nDirector / Commercial Manager",
+      bio: "Richard joined the company as a director shortly after it was incorporated in 1995 and has overall responsibility for commercial aspects. Richard ensures value for money within the business and continually seeks ways of improving cost effectiveness through strong processes and supply chain partnerships."
+    },
+    {
+      name: "Rhys Ford",
+      title: "BSc (Hons) Quantity Surveying & Commercial Management\nDirector / Managing Quantity Surveyor",
+      bio: "Rhys joined the company in February 2015 to reinforce the commercial team and help deliver the company's expanding portfolio of traditional and design and build contracts. Apart from his extensive forms of contracts knowledge, Rhys brings a wealth of experience having previously worked for both large and medium sized developers/contractors."
+    },
+    {
+      name: "Glynn Grey",
+      title: "Operations Manager",
+      bio: "Glynn joined the company in 1999 and has management responsibility of the company's refurbishment and planned maintenance contracts along with management of the direct site personnel. Glynn ensures that the company delivers on its commitment to provide a customer driven service achieving a quality end product. Qualifications include Temporary Works Coordinator and Temporary Works Supervisor, SMSTS, MAPS Test Accredited and First Aid at Work."
+    },
+    {
+      name: "Paul Cachia",
+      title: "Tech IOSH\nHealth, Safety and Training Manager",
+      bio: "Paul joined the company in 1986 and has spent most of his career running development and maintenance sites. This experience and practical knowledge is being utilised by the company to reinforce and further develop its commitment to health and safety. Paul is also responsible for developing skills and capacity within the workforce through apprenticeships and training and is the client point of contact for targeted recruitment and training initiatives within the communities that the company operates."
+    },
+    {
+      name: "Matthew Fortt",
+      title: "BSc (Hons) Quantity Surveying\nQuantity Surveyor/ Estimator",
+      bio: "Matthew joined the company in 2015 to fulfil a specific leading role within the company's expanding commercial department. Matthew is an experienced estimator and quantity surveyor and, having previously worked for a similar sized company who operated within the same industry sectors, has access to a large and competitive supply chain portfolio."
+    },
+    {
+      name: "Matthew Oliver",
+      title: "Quantity Surveyor",
+      bio: "Matt joined the company in September 2017 to add his over 20 years of experience to an already well established and experienced Commercial team. He started his career with an International PQS Practice before transferring to the contracting side where he has gained many years of experience as a QS and Estimator with another local social housing contractor."
+    },
+    {
+      name: "Richard Black",
+      title: "BSc (Hons) Quantity Surveying\nQuantity Surveyor",
+      bio: "Richard joined the company in 2018 to further bolster the commercial team. Richard has over ten years experience of working with large and medium sized contractors across the region."
+    },
+    {
+      name: "Craig Thomas",
+      title: "Insurance Division Manager",
+      bio: "Craig joined the company in 2003 and was promoted into the role of Insurance Claims Manager when the division was created in 2015. Craig has over twenty years' experience within the industry at trade and site management level and his practical knowledge and evident project management skills demonstrated on a broad portfolio of diverse and challenging contracts, makes him ideal to lead the division."
+    },
+    {
+      name: "Tom George",
+      title: "Technical Manager",
+      bio: "Tom joined the company in 2018 having previously worked for a Cardiff based Housing Association in the Development and Maintenance departments. In 2020 Tom completed a HNC in surveying from the University of South Wales."
+    },
+    {
+      name: "Julie Sebestyén",
+      title: "BA (Hons) Business & Finance\nOffice & Finance Manager",
+      bio: "Julie joined the company in 2017 as the Office and Finance Manager and has over 15 years prior experience of general office and finance roles within the construction industry. Her duties are varied and include all aspects of accounts, purchase and sales ledger and payroll."
+    },
+    {
+      name: "Jayne Stephens",
+      title: "Community Benefits Coordinator",
+      bio: "Jayne has been with the company since 2007 and supports our Health, Safety & Training Manager in all aspects of H&S, Policies & Procedures, training records, and environmental & sustainability initiatives."
+    },
+    {
+      name: "Kate Williams",
+      title: "Accounts Assistant",
+      bio: "Kate joined the company in 2015 and works closely with the Office Manager to fulfil a broad range of management functions whilst focusing on business accounts. Kate previously worked in hospitality as an Events Manager and utilises her developed management and coordination skills within her current role."
+    },
+    {
+      name: "Nyron Wood",
+      title: "Contracts Manager",
+      bio: "Nyron has over 35 years' experience within the construction industry and worked from Groundworker to Contracts Manager running multiple sites whilst working for a large building contractor prior to joining Willis as Contracts Manager in November 2022. Nyron leads the construction team to achieve a quality finished product efficiently, safely, and professionally; working within set budgets and agreed timescales ensuring highest levels of client / customer satisfaction is achieved. Nyron is a key member of the pre-contract team providing logistical analysis and buildability guidance and then takes overall control of the project immediately after it is awarded. With a responsibility for overseeing the project from start to finish, he ensures smooth running and completion within the programme and to budget"
     },
   ];
 
@@ -146,6 +219,31 @@ const AboutPage: React.FC = () => {
           Our contribution to the communities in which we work with is fundamental to the business, and our social value activities positively contribute to the Welsh Economy, whether that's through the use of local supply chain, our TR&T activities, or our community benefits engagement.
         </p>
       </InfoSection>
+      
+      {/* Our People */}
+      <section className="py-20 bg-white">
+        <div className="willis-container">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our People</h2>
+            <div className="w-24 h-1 bg-willis-red mx-auto mb-6"></div>
+            <p className="text-gray-600 max-w-3xl mx-auto">
+              Our key strength is our people. Meet the dedicated team behind Willis Construction's success.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {teamMembers.map((member, index) => (
+              <TeamMember
+                key={index}
+                name={member.name}
+                title={member.title}
+                bio={member.bio}
+                delay={index * 100}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
       
       {/* Environmental Sustainability */}
       <section className="py-20 bg-gray-50">
