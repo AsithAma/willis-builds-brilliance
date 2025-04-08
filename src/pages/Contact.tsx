@@ -29,7 +29,7 @@ const ContactPage: React.FC = () => {
       {/* Quick Contact Cards */}
       <section className="py-12 bg-white relative z-10">
         <div className="willis-container">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-white rounded-xl shadow-lg p-8 text-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
               <div className="bg-willis-red/10 text-willis-red rounded-full p-4 w-16 h-16 flex items-center justify-center mx-auto mb-6">
                 <Phone className="h-8 w-8" />
@@ -50,19 +50,6 @@ const ContactPage: React.FC = () => {
               <a href="mailto:mail@willisconstruction.co.uk" className="text-lg font-medium text-willis-red hover:underline">
                 mail@willisconstruction.co.uk
               </a>
-            </div>
-            
-            <div className="bg-white rounded-xl shadow-lg p-8 text-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
-              <div className="bg-willis-red/10 text-willis-red rounded-full p-4 w-16 h-16 flex items-center justify-center mx-auto mb-6">
-                <MapPin className="h-8 w-8" />
-              </div>
-              <h3 className="text-xl font-bold mb-2">Location</h3>
-              <p className="text-gray-600 mb-4">Visit our office at</p>
-              <p className="text-lg font-medium">
-                Unit 1 River Bridge Business Centre,<br />
-                Rhymney River Bridge Road,<br />
-                Penylan, Cardiff, CF23 9FP
-              </p>
             </div>
           </div>
         </div>
