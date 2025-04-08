@@ -69,85 +69,85 @@ const AboutPage: React.FC = () => {
       name: "Gareth Williams",
       title: "Managing Director",
       bio: "Since starting the company in 1986, Gareth has led and developed the company to become a highly respected and trusted contractor strategically expanding its services to its present offering of New Build, Major Refurbishment, Planned Maintenance and Insurance Claims Repairs.",
-      photoUrl: "https://images.unsplash.com/photo-1560251180-1a0b9a770d8b?q=80&w=50&auto=format&fit=crop"
+      photoUrl: "/public/Image/Gareth Williams.png"
     },
     {
       name: "Richard Jeremy",
       title: "A.C.I.O.B.\nDirector / Commercial Manager",
       bio: "Richard joined the company as a director shortly after it was incorporated in 1995 and has overall responsibility for commercial aspects. Richard ensures value for money within the business and continually seeks ways of improving cost effectiveness through strong processes and supply chain partnerships.",
-      photoUrl: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=50&auto=format&fit=crop"
+      photoUrl: "/public/Image/Richard Jeremy.png"
     },
     {
       name: "Rhys Ford",
       title: "BSc (Hons) Quantity Surveying & Commercial Management\nDirector / Managing Quantity Surveyor",
       bio: "Rhys joined the company in February 2015 to reinforce the commercial team and help deliver the company's expanding portfolio of traditional and design and build contracts. Apart from his extensive forms of contracts knowledge, Rhys brings a wealth of experience having previously worked for both large and medium sized developers/contractors.",
-      photoUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=50&auto=format&fit=crop"
+      photoUrl: "/public/Image/Rhys Ford.png"
     },
     {
       name: "Glynn Grey",
       title: "Operations Manager",
       bio: "Glynn joined the company in 1999 and has management responsibility of the company's refurbishment and planned maintenance contracts along with management of the direct site personnel. Glynn ensures that the company delivers on its commitment to provide a customer driven service achieving a quality end product. Qualifications include Temporary Works Coordinator and Temporary Works Supervisor, SMSTS, MAPS Test Accredited and First Aid at Work.",
-      photoUrl: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=50&auto=format&fit=crop"
+      photoUrl: "/public/Image/Glynn Grey.png"
     },
     {
       name: "Paul Cachia",
       title: "Tech IOSH\nHealth, Safety and Training Manager",
       bio: "Paul joined the company in 1986 and has spent most of his career running development and maintenance sites. This experience and practical knowledge is being utilised by the company to reinforce and further develop its commitment to health and safety. Paul is also responsible for developing skills and capacity within the workforce through apprenticeships and training and is the client point of contact for targeted recruitment and training initiatives within the communities that the company operates.",
-      photoUrl: "https://images.unsplash.com/photo-1522075469780-3a6694fb2f61?q=80&w=50&auto=format&fit=crop"
+      photoUrl: "/public/Image/Paul Cachia.png"
     },
     {
       name: "Matthew Fortt",
       title: "BSc (Hons) Quantity Surveying\nQuantity Surveyor/ Estimator",
       bio: "Matthew joined the company in 2015 to fulfil a specific leading role within the company's expanding commercial department. Matthew is an experienced estimator and quantity surveyor and, having previously worked for a similar sized company who operated within the same industry sectors, has access to a large and competitive supply chain portfolio.",
-      photoUrl: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=50&auto=format&fit=crop"
+      photoUrl: "/public/Image/Matthew Fortt.png"
     },
     {
       name: "Matthew Oliver",
       title: "Quantity Surveyor",
       bio: "Matt joined the company in September 2017 to add his over 20 years of experience to an already well established and experienced Commercial team. He started his career with an International PQS Practice before transferring to the contracting side where he has gained many years of experience as a QS and Estimator with another local social housing contractor.",
-      photoUrl: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=50&auto=format&fit=crop"
+      photoUrl: "/public/Image/Matthew Oliver.png"
     },
     {
       name: "Richard Black",
       title: "BSc (Hons) Quantity Surveying\nQuantity Surveyor",
       bio: "Richard joined the company in 2018 to further bolster the commercial team. Richard has over ten years experience of working with large and medium sized contractors across the region.",
-      photoUrl: "https://images.unsplash.com/photo-1528892952291-009c663ce843?q=80&w=50&auto=format&fit=crop"
+      photoUrl: "/public/Image/Richard Black.png"
     },
     {
       name: "Craig Thomas",
       title: "Insurance Division Manager",
       bio: "Craig joined the company in 2003 and was promoted into the role of Insurance Claims Manager when the division was created in 2015. Craig has over twenty years' experience within the industry at trade and site management level and his practical knowledge and evident project management skills demonstrated on a broad portfolio of diverse and challenging contracts, makes him ideal to lead the division.",
-      photoUrl: "https://images.unsplash.com/photo-1531123414780-f74242c2b052?q=80&w=50&auto=format&fit=crop"
+      photoUrl: "/public/Image/Craig Thomas.png"
     },
     {
       name: "Tom George",
       title: "Technical Manager",
       bio: "Tom joined the company in 2018 having previously worked for a Cardiff based Housing Association in the Development and Maintenance departments. In 2020 Tom completed a HNC in surveying from the University of South Wales.",
-      photoUrl: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=50&auto=format&fit=crop"
+      photoUrl: "/public/Image/Tom George.png"
     },
     {
       name: "Julie Sebestyén",
       title: "BA (Hons) Business & Finance\nOffice & Finance Manager",
       bio: "Julie joined the company in 2017 as the Office and Finance Manager and has over 15 years prior experience of general office and finance roles within the construction industry. Her duties are varied and include all aspects of accounts, purchase and sales ledger and payroll.",
-      photoUrl: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=50&auto=format&fit=crop"
+      photoUrl: "/public/Image/Julie Sebestyén.png"
     },
     {
       name: "Jayne Stephens",
       title: "Community Benefits Coordinator",
       bio: "Jayne has been with the company since 2007 and supports our Health, Safety & Training Manager in all aspects of H&S, Policies & Procedures, training records, and environmental & sustainability initiatives.",
-      photoUrl: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=50&auto=format&fit=crop"
+      photoUrl: "/public/Image/Jayne Stephens.png"
     },
     {
       name: "Kate Williams",
       title: "Accounts Assistant",
       bio: "Kate joined the company in 2015 and works closely with the Office Manager to fulfil a broad range of management functions whilst focusing on business accounts. Kate previously worked in hospitality as an Events Manager and utilises her developed management and coordination skills within her current role.",
-      photoUrl: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=50&auto=format&fit=crop"
+      photoUrl: "/public/Image/Kate Williams.png"
     },
     {
       name: "Nyron Wood",
       title: "Contracts Manager",
       bio: "Nyron has over 35 years' experience within the construction industry and worked from Groundworker to Contracts Manager running multiple sites whilst working for a large building contractor prior to joining Willis as Contracts Manager in November 2022. Nyron leads the construction team to achieve a quality finished product efficiently, safely, and professionally; working within set budgets and agreed timescales ensuring highest levels of client / customer satisfaction is achieved. Nyron is a key member of the pre-contract team providing logistical analysis and buildability guidance and then takes overall control of the project immediately after it is awarded. With a responsibility for overseeing the project from start to finish, he ensures smooth running and completion within the programme and to budget",
-      photoUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=50&auto=format&fit=crop"
+      photoUrl: "/public/Image/Nyron Wood.png"
     },
   ];
 

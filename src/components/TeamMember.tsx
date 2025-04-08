@@ -24,7 +24,7 @@ const TeamMember: React.FC<TeamMemberProps> = ({
       style={{ animationDelay: `${delay}ms` }}
     >
       {/* Large Image Section */}
-      <div className="w-full h-64 relative">
+      <div className="w-full h-96 relative">
         {photoUrl ? (
           <img 
             src={photoUrl} 
