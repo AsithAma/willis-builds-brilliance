@@ -1,6 +1,7 @@
 
 import React from "react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { User } from "lucide-react";
 
 interface TeamMemberProps {
@@ -23,11 +24,17 @@ const TeamMember: React.FC<TeamMemberProps> = ({
       className="overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
       style={{ animationDelay: `${delay}ms` }}
     >
-      <CardHeader className="p-6 pb-0 flex items-center">
+      <CardHeader className="p-6 pb-0">
         <div className="flex items-center gap-4">
-          <div className="w-12 h-12 bg-willis-red/10 rounded-full flex items-center justify-center text-willis-red">
-            <User className="h-6 w-6" />
-          </div>
+          <Avatar className="h-12 w-12 bg-red-50">
+            {photoUrl ? (
+              <AvatarImage src={photoUrl} alt={name} />
+            ) : (
+              <AvatarFallback className="bg-willis-red/10 text-willis-red">
+                <User className="h-6 w-6" />
+              </AvatarFallback>
+            )}
+          </Avatar>
           <div>
             <h3 className="text-xl font-semibold">{name}</h3>
             <p className="text-sm text-gray-600 whitespace-pre-line">{title}</p>
