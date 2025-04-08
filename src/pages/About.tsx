@@ -233,35 +233,9 @@ const AboutPage: React.FC = () => {
           Our contribution to the communities in which we work with is fundamental to the business, and our social value activities positively contribute to the Welsh Economy, whether that's through the use of local supply chain, our TR&T activities, or our community benefits engagement.
         </p>
       </InfoSection>
-      
-      {/* Our People */}
-      <section className="py-20 bg-white">
-        <div className="willis-container">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our People</h2>
-            <div className="w-24 h-1 bg-willis-red mx-auto mb-6"></div>
-            <p className="text-gray-600 max-w-3xl mx-auto">
-              Our key strength is our people. Meet the dedicated team behind Willis Construction's success.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {teamMembers.map((member, index) => (
-              <TeamMember
-                key={index}
-                name={member.name}
-                title={member.title}
-                bio={member.bio}
-                photoUrl={member.photoUrl}
-                delay={index * 100}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-      
-      {/* Environmental Sustainability */}
-      <section className="py-20 bg-gray-50">
+
+       {/* Environmental Sustainability */}
+       <section className="py-20 bg-gray-50">
         <div className="willis-container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6 animate-fade-in-left">
@@ -321,6 +295,34 @@ const AboutPage: React.FC = () => {
           </div>
         </div>
       </section>
+      
+      {/* Our People */}
+      <section className="py-20 bg-white">
+        <div className="willis-container">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our People</h2>
+            <div className="w-24 h-1 bg-willis-red mx-auto mb-6"></div>
+            <p className="text-gray-600 max-w-3xl mx-auto">
+              Our key strength is our people. Meet the dedicated team behind Willis Construction's success.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {teamMembers.map((member, index) => (
+              <TeamMember
+                key={index}
+                name={member.name}
+                title={member.title}
+                bio={member.bio}
+                photoUrl={member.photoUrl}
+                delay={index * 100}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+      
+     
       
       {/* Stats Counter */}
       <StatsCounter />
