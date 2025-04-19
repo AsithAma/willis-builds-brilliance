@@ -8,6 +8,7 @@ import {
   Instagram,
   Linkedin,
 } from "lucide-react";
+import Logo from "../assets/WILLIS-CONSTRUCTION-LOGO.svg"
 
 const Footer: React.FC = () => {
   return (
@@ -17,7 +18,7 @@ const Footer: React.FC = () => {
           <div className="space-y-4">
             <div className="text-2xl font-bold ">
               <img
-                src="/public/Image/WILLIS-CONSTRUCTION-LOGO.svg"
+                src={Logo}
                 alt="Willis Construction Logo"
                 className="h-16 w-auto"
               />

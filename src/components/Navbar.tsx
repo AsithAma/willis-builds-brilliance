@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
+import Logo from "../assets/WILLIS-CONSTRUCTION.png"
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -53,7 +54,7 @@ const Navbar: React.FC = () => {
           <Link to="/" className="flex items-center">
             <div className="text-2xl font-bold flex items-center">
               <img
-                src="/public/Image/WILLIS-CONSTRUCTION.png"
+                src={Logo}
                 alt="Willis Construction Logo"
                 className="h-8 w-auto"
               />
@@ -97,6 +98,7 @@ const Navbar: React.FC = () => {
                 <NavigationMenuItem>
                   <NavigationMenuTrigger
                     className={cn(
+                      "group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:text-[#f78da7] focus:text-[#f78da7] focus:outline-none disabled:pointer-events-none disabled:opacity-50",
                       isActive("/projects") ||
                         isActive("/projects/development") ||
                         isActive("/projects/refurbishment") ||
@@ -130,7 +132,7 @@ const Navbar: React.FC = () => {
                         to="/projects/development"
                         title="Development"
                         className={
-                          isActive("/projects/development") ? "bg-accent" : ""
+                          isActive("/projects/development") ? "bg-gray-300" : "bg-white"
                         }
                       >
                         New construction projects and property developments
@@ -139,7 +141,7 @@ const Navbar: React.FC = () => {
                         to="/projects/refurbishment"
                         title="Refurbishment"
                         className={
-                          isActive("/projects/refurbishment") ? "bg-accent" : ""
+                          isActive("/projects/refurbishment") ?  "bg-gray-300" : "bg-white"
                         }
                       >
                         Renovation and modernization of existing structures
@@ -148,9 +150,7 @@ const Navbar: React.FC = () => {
                         to="/projects/planned-refurbishment"
                         title="Planned Refurbishment"
                         className={
-                          isActive("/projects/planned-refurbishment")
-                            ? "bg-accent"
-                            : ""
+                          isActive("/projects/planned-refurbishment") ? "bg-gray-300" : "bg-white"
                         }
                       >
                         Scheduled renovations and strategic upgrades
@@ -159,9 +159,7 @@ const Navbar: React.FC = () => {
                         to="/projects/educational-local-authority"
                         title="Educational & Local Authority"
                         className={
-                          isActive("/projects/educational-local-authority")
-                            ? "bg-accent"
-                            : ""
+                          isActive("/projects/educational-local-authority") ? "bg-gray-300" : "bg-white"
                         }
                       >
                         Schools, universities and public sector buildings
@@ -250,8 +248,8 @@ const Navbar: React.FC = () => {
                 to="/projects/development"
                 className={`text-base ${
                   isActive("/projects/development")
-                    ? "text-willis-red"
-                    : "text-gray-600 hover:text-[#f78da7]"
+                    ? "text-gray-500"
+                    : "text-gray-600"
                 }`}
               >
                 Development
@@ -317,7 +315,9 @@ const ListItem = React.forwardRef<
           to={to}
           ref={ref}
           className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+            // "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-gray-200 hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+
             className
           )}
           {...props}

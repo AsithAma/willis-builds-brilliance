@@ -14,7 +14,7 @@ const GoogleMap: React.FC = () => {
   useEffect(() => {
     // Create a script element
     const script = document.createElement('script');
-    script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap`;
+    script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyClWx_Hx-h_VhWXhmmYTCB14blUIK8Rra0&callback=initMap`;
     script.async = true;
     script.defer = true;
     
