@@ -17,7 +17,7 @@ const developmentProjects = [
   },
   {
     id: 2,
-    image: "https://images.unsplash.com/photo-1567408242223-777777778777?q=80&w=800&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?q=80&w=800&auto=format&fit=crop",
     title: "St. David's Shopping Centre Extension",
     category: "Commercial Development",
     description: "A major extension to the existing shopping centre, adding 30 new retail units and improving public spaces.",

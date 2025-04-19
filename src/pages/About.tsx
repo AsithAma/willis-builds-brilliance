@@ -20,6 +20,7 @@ import Julie_Sebestyén from "../assets/Julie Sebestyén.png"
 import Jayne_Stephens from "../assets/Jayne Stephens.png"
 import Kate_Williams from "../assets/Kate Williams.png"
 import Nyron_Wood from "../assets/Nyron Wood.png"
+import Social from "../assets/Social Value.jpg"
 
 const AboutPage: React.FC = () => {
   const values = [
@@ -234,7 +235,7 @@ const AboutPage: React.FC = () => {
       <InfoSection
         title="Social Value"
         subtitle="COMMUNITY COMMITMENT"
-        image="https://images.unsplash.com/photo-1560251180-1a0b9a770d8b?q=80&w=1200&auto=format&fit=crop"
+        image={Social}
         imagePosition="left"
       >
         <p>

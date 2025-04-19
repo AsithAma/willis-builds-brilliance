@@ -1,6 +1,5 @@
 
 import React from "react";
-import Social from "../assets/Social Value.jpg"
 
 interface InfoSectionProps {
   title: string;
@@ -34,7 +33,7 @@ const InfoSection: React.FC<InfoSectionProps> = ({
           {imagePosition === "left" && (
             <div className="relative overflow-hidden rounded-xl animate-fade-in-left">
               <img
-                src={Social}
+                src={image}
                 alt={title}
                 className="w-full h-auto object-cover rounded-xl shadow-lg transform transition-all duration-500 hover:scale-105"
                 loading={imagePriority ? "eager" : "lazy"}
