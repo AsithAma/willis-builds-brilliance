@@ -22,7 +22,7 @@ const GoogleMap: React.FC = () => {
     window.initMap = function() {
       if (mapRef.current && window.google) {
         // Using coordinates for Willis Construction
-        const location = { lat: 51.497, lng: -3.145 };
+        const location = { lat: 51.498404, lng: -3.137902 };
         
         const map = new window.google.maps.Map(mapRef.current, {
           center: location,
