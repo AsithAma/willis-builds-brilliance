@@ -1,6 +1,5 @@
-
 import React, { useState } from "react";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin, ChevronDown } from "lucide-react";
 
 const ContactForm: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -106,8 +105,8 @@ const ContactForm: React.FC = () => {
                 <div>
                   <h4 className="text-lg font-semibold mb-1">Email Us</h4>
                   <p className="text-gray-600">
-                    <a href="mailto:mail@willisconstruction.co.uk" className="hover:text-willis-red transition-colors">
-                      mail@willisconstruction.co.uk
+                    <a href="mailto:info@willisconstruction.co.uk" className="hover:text-willis-red transition-colors">
+                      info@willisconstruction.co.uk
                     </a>
                   </p>
                 </div>
@@ -200,19 +199,24 @@ const ContactForm: React.FC = () => {
                   <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
                     Subject
                   </label>
-                  <select
-                    id="subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-willis-red focus:border-willis-red transition-colors"
-                  >
-                    <option value="">Select a subject</option>
-                    <option value="General Inquiry">General Inquiry</option>
-                    <option value="Project Quote">Project Quote</option>
-                    <option value="Career Information">Career Information</option>
-                    <option value="Service Details">Service Details</option>
-                  </select>
+                  <div className="relative">
+                    <select
+                      id="subject"
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-willis-red focus:border-willis-red transition-colors appearance-none"
+                    >
+                      <option value="">Select a subject</option>
+                      <option value="General Inquiry">General Inquiry</option>
+                      <option value="Project Quote">Project Quote</option>
+                      <option value="Career Information">Career Information</option>
+                      <option value="Service Details">Service Details</option>
+                    </select>
+                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                      <ChevronDown className="h-5 w-5 text-willis-red" />
+                    </div>
+                  </div>
                 </div>
               </div>
               

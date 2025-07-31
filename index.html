@@ -4,14 +4,35 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>willis-builds-brilliance</title>
-    <meta name="description" content="Project by Hiveion" />
+    <meta name="description" content="Project by Asith" />
     <link rel="icon" href="/src/assets/favicon.ico" type="image/x-icon">
   </head>
 
   <body>
     <div id="root"></div>
-    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
-    <!-- <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script> -->
     <script type="module" src="/src/main.tsx"></script>
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-analytics.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+    
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyDgZwPzeRieIvSMbSdIBSoNbVxXopAQiPc",
+        authDomain: "willis-construction-da4c1.firebaseapp.com",
+        projectId: "willis-construction-da4c1",
+        storageBucket: "willis-construction-da4c1.firebasestorage.app",
+        messagingSenderId: "1022970180771",
+        appId: "1:1022970180771:web:d9152b7139aa8be1f53b16",
+        measurementId: "G-MFQND7NNP8"
+      };
+    
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+    </script>
   </body>
 </html>

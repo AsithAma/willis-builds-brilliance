@@ -1,336 +1,358 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
-import Logo from "../assets/WILLIS-CONSTRUCTION.png"
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
+import { Menu, X, ChevronDown, ChevronRight } from "lucide-react";
+import Logo from "../assets/WILLIS-CONSTRUCTION.png";
 import { cn } from "@/lib/utils";
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [projectsOpen, setProjectsOpen] = useState(false);
   const location = useLocation();
 
-  const isActive = (path: string) => {
-    return location.pathname === path;
-  };
-
+  // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(window.scrollY > 20);
     };
 
     window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Close mobile menu on route change
   useEffect(() => {
-    // Close mobile menu when route changes
     setIsOpen(false);
+    setProjectsOpen(false);
   }, [location]);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add("no-scroll");
+    } else {
+      document.body.classList.remove("no-scroll");
+    }
+    
+    return () => {
+      document.body.classList.remove("no-scroll");
+    };
+  }, [isOpen]);
+
+  const isActive = (path: string) => location.pathname === path;
+  
+  const isProjectPage = 
+    isActive("/projects") || 
+    isActive("/projects/development") || 
+    isActive("/projects/refurbishment") || 
+    isActive("/projects/planned-refurbishment") || 
+    isActive("/projects/educational-local-authority");
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white/95 backdrop-blur-md shadow-md py-2"
-          : "bg-transparent py-4"
-      }`}
+      className={cn(
+        "fixed top-0 left-0 w-full z-50 transition-all duration-300",
+        scrolled ? "bg-white shadow-md py-2" : "py-4",
+        isOpen ? "bg-white shadow-md" : ""
+      )}
     >
-      <div className="willis-container">
+      <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center">
-            <div className="text-2xl font-bold flex items-center">
-              <img
-                src={Logo}
-                alt="Willis Construction Logo"
-                className="h-8 w-auto"
-              />
-            </div>
+          {/* Logo */}
+          <Link 
+            to="/" 
+            className="relative z-50 flex items-center"
+            onClick={() => setIsOpen(false)}
+          >
+            <img
+              src={Logo}
+              alt="Willis Construction Logo"
+              className="h-8 md:h-10 w-auto"
+            />
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:block">
-            <NavigationMenu>
-              <NavigationMenuList>
-                <NavigationMenuItem>
-                  <Link to="/">
-                    <NavigationMenuLink
-                      className={cn(
-                        "group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:text-[#f78da7] focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50",
-                        isActive("/") || isActive("/home")
-                          ? "text-willis-red font-semibold"
-                          : "text-gray-700"
-                      )}
-                    >
-                      Home
-                    </NavigationMenuLink>
+          <nav className="hidden md:flex items-center space-x-1">
+            <NavLink to="/" isActive={isActive("/") || isActive("/home")}>
+              Home
+            </NavLink>
+            
+            <NavLink to="/about" isActive={isActive("/about")}>
+              About Us
+            </NavLink>
+            
+            {/* Projects Dropdown */}
+            <div className="relative group">
+              <button 
+                className={cn(
+                  "flex items-center px-4 py-2 text-sm font-medium rounded-md transition-colors",
+                  isProjectPage 
+                    ? "text-willis-red" 
+                    : "text-gray-700 hover:text-willis-red"
+                )}
+                onClick={() => setProjectsOpen(!projectsOpen)}
+              >
+                Projects
+                <ChevronDown className="ml-1 h-4 w-4 transition-transform group-hover:rotate-180" />
+              </button>
+              
+              <div className="absolute left-0 mt-1 w-60 origin-top-left rounded-md bg-white shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                <div className="p-2 space-y-1">
+                  <Link 
+                    to="/projects"
+                    className="block w-full text-left px-4 py-2 text-sm rounded-md hover:bg-gray-100"
+                  >
+                    View All Projects
                   </Link>
-                </NavigationMenuItem>
-
-                <NavigationMenuItem>
-                  <Link to="/about">
-                    <NavigationMenuLink
-                      className={cn(
-                        "group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:text-[#f78da7] focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50",
-                        isActive("/about")
-                          ? "text-willis-red font-semibold"
-                          : "text-gray-700"
-                      )}
-                    >
-                      About Us
-                    </NavigationMenuLink>
-                  </Link>
-                </NavigationMenuItem>
-
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger
+                  
+                  <Link 
+                    to="/projects/development"
                     className={cn(
-                      "group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:text-[#f78da7] focus:text-[#f78da7] focus:outline-none disabled:pointer-events-none disabled:opacity-50",
-                      isActive("/projects") ||
-                        isActive("/projects/development") ||
-                        isActive("/projects/refurbishment") ||
-                        isActive("/projects/planned-refurbishment") ||
-                        isActive("/projects/educational-local-authority")
-                        ? "text-willis-red font-semibold"
-                        : "text-gray-700 hover:text-[#f78da7]"
+                      "block w-full text-left px-4 py-2 text-sm rounded-md hover:bg-gray-100",
+                      isActive("/projects/development") && "bg-gray-100 font-medium"
                     )}
                   >
-                    Projects
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <ul className="grid gap-3 p-4 w-[400px] md:w-[500px] lg:w-[600px] grid-cols-2">
-                      <li className="col-span-2">
-                        <NavigationMenuLink asChild>
-                          <Link
-                            to="/projects"
-                            className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-willis-red/10 to-willis-red/5 p-6 no-underline outline-none focus:shadow-md"
-                          >
-                            <div className="mb-2 mt-4 text-lg font-medium text-willis-red">
-                              View All Projects
-                            </div>
-                            <p className="text-sm leading-tight text-muted-foreground">
-                              Explore our complete portfolio of construction
-                              projects across all categories.
-                            </p>
-                          </Link>
-                        </NavigationMenuLink>
-                      </li>
-                      <ListItem
-                        to="/projects/development"
-                        title="Development"
-                        className={
-                          isActive("/projects/development") ? "bg-gray-300" : "bg-white"
-                        }
-                      >
-                        New construction projects and property developments
-                      </ListItem>
-                      <ListItem
-                        to="/projects/refurbishment"
-                        title="Refurbishment"
-                        className={
-                          isActive("/projects/refurbishment") ?  "bg-gray-300" : "bg-white"
-                        }
-                      >
-                        Renovation and modernization of existing structures
-                      </ListItem>
-                      <ListItem
-                        to="/projects/planned-refurbishment"
-                        title="Planned Refurbishment"
-                        className={
-                          isActive("/projects/planned-refurbishment") ? "bg-gray-300" : "bg-white"
-                        }
-                      >
-                        Scheduled renovations and strategic upgrades
-                      </ListItem>
-                      <ListItem
-                        to="/projects/educational-local-authority"
-                        title="Educational & Local Authority"
-                        className={
-                          isActive("/projects/educational-local-authority") ? "bg-gray-300" : "bg-white"
-                        }
-                      >
-                        Schools, universities and public sector buildings
-                      </ListItem>
-                    </ul>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-
-                <NavigationMenuItem>
-                  <Link to="/contact">
-                    <NavigationMenuLink
-                      className={cn(
-                        "group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:text-[#f78da7] focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50",
-                        isActive("/contact")
-                          ? "text-willis-red font-semibold"
-                          : "text-gray-700"
-                      )}
-                    >
-                      Contact Us
-                    </NavigationMenuLink>
+                    Development
                   </Link>
-                </NavigationMenuItem>
-
-                <NavigationMenuItem>
-                  <Link to="/contact">
-                    <NavigationMenuLink className="inline-flex h-10 items-center justify-center rounded-md bg-willis-red px-6 text-sm font-medium text-white transition-colors hover:bg-willis-red/90 focus:outline-none disabled:pointer-events-none disabled:opacity-50">
-                      Get a Quote
-                    </NavigationMenuLink>
+                  
+                  <Link 
+                    to="/projects/refurbishment"
+                    className={cn(
+                      "block w-full text-left px-4 py-2 text-sm rounded-md hover:bg-gray-100",
+                      isActive("/projects/refurbishment") && "bg-gray-100 font-medium"
+                    )}
+                  >
+                    Refurbishment
                   </Link>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
-          </div>
+                  
+                  <Link 
+                    to="/projects/planned-refurbishment"
+                    className={cn(
+                      "block w-full text-left px-4 py-2 text-sm rounded-md hover:bg-gray-100",
+                      isActive("/projects/planned-refurbishment") && "bg-gray-100 font-medium"
+                    )}
+                  >
+                    Planned Refurbishment
+                  </Link>
+                  
+                  <Link 
+                    to="/projects/educational-local-authority"
+                    className={cn(
+                      "block w-full text-left px-4 py-2 text-sm rounded-md hover:bg-gray-100",
+                      isActive("/projects/educational-local-authority") && "bg-gray-100 font-medium"
+                    )}
+                  >
+                    Educational & Local Authority
+                  </Link>
+                </div>
+              </div>
+            </div>
+            
+            <NavLink to="/contact" isActive={isActive("/contact")}>
+              Contact Us
+            </NavLink>
+            
+            <Link 
+              to="/contact"
+              className="ml-2 inline-flex items-center justify-center rounded-md bg-willis-red px-4 py-2 text-sm font-medium text-white hover:bg-willis-red/90 transition-colors"
+            >
+              Get a Quote
+            </Link>
+          </nav>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden flex items-center"
-            aria-label="Toggle Menu"
+            className="md:hidden relative z-50 p-2"
+            aria-label={isOpen ? "Close Menu" : "Open Menu"}
           >
             {isOpen ? (
-              <X className="h-6 w-6 text-willis-dark transition-all duration-300" />
+              <X className="h-6 w-6 text-gray-900" />
             ) : (
-              <Menu className="h-6 w-6 text-willis-dark transition-all duration-300" />
+              <Menu className="h-6 w-6 text-gray-900" />
             )}
           </button>
         </div>
       </div>
 
-      {/* Mobile Navigation */}
-      <div
-        className={`md:hidden fixed inset-0 bg-white bg-opacity-95 z-40 flex flex-col justify-center transition-transform duration-300 ease-in-out ${
-          isOpen ? "translate-x-0" : "translate-x-full"
-        }`}
-        style={{ top: "60px" }}
-      >
-        <nav className="flex flex-col items-center space-y-6 text-lg">
-          <Link
-            to="/"
-            className={`navbar-link text-xl ${
-              isActive("/") || isActive("/home") ? "active" : ""
-            }`}
-          >
-            Home
-          </Link>
-          <Link
-            to="/about"
-            className={`navbar-link text-xl ${
-              isActive("/about") ? "active" : ""
-            }`}
-          >
-            About Us
-          </Link>
+      {/* Mobile Navigation Overlay */}
+      <div 
+        className={cn(
+          "fixed inset-0 bg-black/20 backdrop-blur-sm z-40 md:hidden transition-opacity duration-300",
+          isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+        )}
+        onClick={() => setIsOpen(false)}
+      />
 
-          <div className="flex flex-col items-center">
-            <Link
-              to="/projects"
-              className={`navbar-link text-xl ${
-                isActive("/projects") ? "active" : ""
-              }`}
-            >
-              Projects
-            </Link>
-            <div className="flex flex-col items-center mt-2 space-y-3 pl-6">
-              <Link
-                to="/projects/development"
-                className={`text-base ${
-                  isActive("/projects/development")
-                    ? "text-gray-500"
-                    : "text-gray-600"
-                }`}
+      {/* Mobile Navigation Menu */}
+      <div
+        className={cn(
+          "fixed top-0 right-0 bottom-0 z-40 w-[80%] max-w-sm bg-white shadow-xl md:hidden transition-transform duration-300 ease-in-out transform",
+          isOpen ? "translate-x-0" : "translate-x-full"
+        )}
+      >
+        <div className="h-full flex flex-col overflow-y-auto pt-20 pb-6 px-6">
+          <nav className="flex-1 flex flex-col">
+            <div className="space-y-3 py-4">
+              <MobileNavLink 
+                to="/" 
+                isActive={isActive("/") || isActive("/home")}
+                onClick={() => setIsOpen(false)}
               >
-                Development
-              </Link>
-              <Link
-                to="/projects/refurbishment"
-                className={`text-base ${
-                  isActive("/projects/refurbishment")
-                    ? "text-willis-red"
-                    : "text-gray-600 hover:text-[#f78da7]"
-                }`}
+                Home
+              </MobileNavLink>
+              
+              <MobileNavLink 
+                to="/about" 
+                isActive={isActive("/about")}
+                onClick={() => setIsOpen(false)}
               >
-                Refurbishment
-              </Link>
-              <Link
-                to="/projects/planned-refurbishment"
-                className={`text-base ${
-                  isActive("/projects/planned-refurbishment")
-                    ? "text-willis-red"
-                    : "text-gray-600 hover:text-[#f78da7]"
-                }`}
+                About Us
+              </MobileNavLink>
+              
+              {/* Mobile Projects Dropdown */}
+              <div className="py-1">
+                <button
+                  className={cn(
+                    "flex items-center justify-between w-full text-left px-2 py-2 rounded-md",
+                    isProjectPage ? "text-willis-red font-medium" : "text-gray-800"
+                  )}
+                  onClick={() => setProjectsOpen(!projectsOpen)}
+                >
+                  <span>Projects</span>
+                  <ChevronDown 
+                    className={cn(
+                      "h-5 w-5 transition-transform",
+                      projectsOpen && "rotate-180"
+                    )} 
+                  />
+                </button>
+                
+                {projectsOpen && (
+                  <div className="mt-1 ml-4 pl-2 border-l-2 border-gray-200 space-y-2">
+                    <Link
+                      to="/projects"
+                      className={cn(
+                        "block py-2 text-gray-600 hover:text-willis-red",
+                        isActive("/projects") && "text-willis-red font-medium"
+                      )}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      View All Projects
+                    </Link>
+                    
+                    <Link
+                      to="/projects/development"
+                      className={cn(
+                        "block py-2 text-gray-600 hover:text-willis-red",
+                        isActive("/projects/development") && "text-willis-red font-medium"
+                      )}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      Development
+                    </Link>
+                    
+                    <Link
+                      to="/projects/refurbishment"
+                      className={cn(
+                        "block py-2 text-gray-600 hover:text-willis-red",
+                        isActive("/projects/refurbishment") && "text-willis-red font-medium"
+                      )}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      Refurbishment
+                    </Link>
+                    
+                    <Link
+                      to="/projects/planned-refurbishment"
+                      className={cn(
+                        "block py-2 text-gray-600 hover:text-willis-red",
+                        isActive("/projects/planned-refurbishment") && "text-willis-red font-medium"
+                      )}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      Planned Refurbishment
+                    </Link>
+                    
+                    <Link
+                      to="/projects/educational-local-authority"
+                      className={cn(
+                        "block py-2 text-gray-600 hover:text-willis-red",
+                        isActive("/projects/educational-local-authority") && "text-willis-red font-medium"
+                      )}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      Educational & Local Authority
+                    </Link>
+                  </div>
+                )}
+              </div>
+              
+              <MobileNavLink 
+                to="/contact" 
+                isActive={isActive("/contact")}
+                onClick={() => setIsOpen(false)}
               >
-                Planned Refurbishment
-              </Link>
+                Contact Us
+              </MobileNavLink>
+            </div>
+            
+            <div className="mt-auto pt-6">
               <Link
-                to="/projects/educational-local-authority"
-                className={`text-base ${
-                  isActive("/projects/educational-local-authority")
-                    ? "text-willis-red"
-                    : "text-gray-600 hover:text-[#f78da7]"
-                }`}
+                to="/contact"
+                className="block w-full text-center py-3 px-4 rounded-md bg-willis-red text-white font-medium hover:bg-willis-red/90 transition-colors"
+                onClick={() => setIsOpen(false)}
               >
-                Educational & Local Authority
+                Get a Quote
               </Link>
             </div>
-          </div>
-
-          <Link
-            to="/contact"
-            className={`navbar-link text-xl ${
-              isActive("/contact") ? "active" : ""
-            }`}
-          >
-            Contact Us
-          </Link>
-          <Link to="/contact" className="button-primary mt-4">
-            Get a Quote
-          </Link>
-        </nav>
+          </nav>
+        </div>
       </div>
     </header>
   );
 };
 
-const ListItem = React.forwardRef<
-  React.ElementRef<"a">,
-  React.ComponentPropsWithoutRef<"a"> & { to: string; title: string }
->(({ className, title, children, to, ...props }, ref) => {
-  return (
-    <li>
-      <NavigationMenuLink asChild>
-        <Link
-          to={to}
-          ref={ref}
-          className={cn(
-            // "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-gray-200 hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+// Desktop Navigation Link
+const NavLink: React.FC<{
+  to: string;
+  isActive: boolean;
+  children: React.ReactNode;
+}> = ({ to, isActive, children }) => (
+  <Link
+    to={to}
+    className={cn(
+      "px-4 py-2 text-sm font-medium rounded-md transition-colors relative",
+      isActive 
+        ? "text-willis-red" 
+        : "text-gray-700 hover:text-willis-red"
+    )}
+  >
+    {children}
+    {isActive && (
+      <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1.5 h-1.5 bg-willis-red rounded-full" />
+    )}
+  </Link>
+);
 
-            className
-          )}
-          {...props}
-        >
-          <div className="text-sm font-medium leading-none">{title}</div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-            {children}
-          </p>
-        </Link>
-      </NavigationMenuLink>
-    </li>
-  );
-});
-ListItem.displayName = "ListItem";
+// Mobile Navigation Link
+const MobileNavLink: React.FC<{
+  to: string;
+  isActive: boolean;
+  onClick?: () => void;
+  children: React.ReactNode;
+}> = ({ to, isActive, onClick, children }) => (
+  <Link
+    to={to}
+    className={cn(
+      "flex items-center px-2 py-2 rounded-md",
+      isActive ? "text-willis-red font-medium" : "text-gray-800 hover:text-willis-red"
+    )}
+    onClick={onClick}
+  >
+    {children}
+    {isActive && <ChevronRight className="ml-auto h-5 w-5" />}
+  </Link>
+);
 
 export default Navbar;

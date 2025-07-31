@@ -12,7 +12,7 @@ const ContactPage: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-willis-red/5 to-transparent"></div>
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-willis-red/5 rounded-full blur-3xl"></div>
         <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-willis-red/5 rounded-full blur-3xl"></div>
-        
+
         <div className="willis-container relative">
           <div className="max-w-4xl">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in">
@@ -25,7 +25,7 @@ const ContactPage: React.FC = () => {
           </div>
         </div>
       </div>
-      
+
       {/* Quick Contact Cards */}
       <section className="py-12 bg-white relative z-10">
         <div className="willis-container">
@@ -40,7 +40,7 @@ const ContactPage: React.FC = () => {
                 02920 797073
               </a>
             </div>
-            
+
             <div className="bg-white rounded-xl shadow-lg p-8 text-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
               <div className="bg-willis-red/10 text-willis-red rounded-full p-4 w-16 h-16 flex items-center justify-center mx-auto mb-6">
                 <Mail className="h-8 w-8" />
@@ -48,16 +48,16 @@ const ContactPage: React.FC = () => {
               <h3 className="text-xl font-bold mb-2">Email</h3>
               <p className="text-gray-600 mb-4">Send us your inquiries anytime</p>
               <a href="mailto:mail@willisconstruction.co.uk" className="text-lg font-medium text-willis-red hover:underline">
-                mail@willisconstruction.co.uk
+                info@willisconstruction.co.uk
               </a>
             </div>
           </div>
         </div>
       </section>
-      
+
       {/* Contact Form Section */}
       <ContactForm />
-      
+
       {/* Google Map Section */}
       <section className="relative">
         <div className="h-[600px] w-full overflow-hidden">

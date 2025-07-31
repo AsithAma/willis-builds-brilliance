@@ -197,10 +197,10 @@ const Footer: React.FC = () => {
               <li className="flex items-center">
                 <Mail className="h-5 w-5 text-white mr-3 flex-shrink-0" />
                 <a
-                  href="mailto:mail@willisconstruction.co.uk"
+                  href="mailto:info@willisconstruction.co.uk"
                   className="text-gray-300 hover:text-white transition-colors duration-300"
                 >
-                  mail@willisconstruction.co.uk
+                  info@willisconstruction.co.uk
                 </a>
               </li>
             </ul>
